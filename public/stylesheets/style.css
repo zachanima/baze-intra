@@ -6,7 +6,7 @@
   font-family: arial, sans-serif;
 }
 
-body, th, td, input {
+body, th, td, input, textarea {
   font-size: 9pt;
 }
 
@@ -33,8 +33,8 @@ th {
  **********/
 
 div#top, div#bottom {
-  position: fixed;
   background-color: #fff;
+  position: fixed;
   width: 100%;
 }
 
@@ -45,6 +45,11 @@ div#top {
 div#bottom {
   border-top: 1px solid #999;
   bottom: 0;
+}
+
+div#fake_top {
+  margin-bottom: 1px;
+  position: relative;
 }
 
 div.center {
@@ -67,14 +72,14 @@ ul#nav {
   margin: 0;
   padding: 0;
   font-weight: bold;
-  padding: 2px 2px;
+  padding: 1px 2px;
 }
 
 ul#nav li {
   display: inline-block;
   border: 1px solid #999;
   padding: 2px 4px;
-  margin-right: -1px;
+  margin: 1px -1px 1px 0;
 }
 
 ul#nav li.active, ul#nav li:hover {
@@ -123,7 +128,6 @@ table#supplier td.name {
   font-variant: small-caps;
 }
 
-
 table#supplier td.phone {
   height: 1em;
 }
@@ -142,7 +146,6 @@ form#new_supplier input {
 }
 
 form#new_supplier textarea {
-  font-size: inherit;
   height: 3em;
 }
 
@@ -176,7 +179,7 @@ form#new_supplier input[type=submit]:active {
 
 table#data {
   border-collapse: collapse;
-  margin: 100px 0 62px 0;
+  margin: 0 0 62px 0;
   width: 100%;
 }
 

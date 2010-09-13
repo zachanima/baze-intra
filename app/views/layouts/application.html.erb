@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Baze IntraNet</title>
@@ -8,55 +7,57 @@
   </head>
   <body>
 
-    <div id="top">
-      <ul class="business" id="nav">
-        <%= render Supplier.business %>
-        <li><%= link_to '+', new_supplier_path %></li>
-      </ul>
+    <% 2.times do %>
+      <div id="<%= cycle('top', 'fake_top') %>">
+        <ul class="business" id="nav">
+          <%= render Supplier.business %>
+          <li><%= link_to '+', new_supplier_path %></li>
+        </ul>
 
-      <% if @supplier %>
-        <% if @supplier.new_record? %>
-          <% form_for @supplier do |f| %>
+        <% if @supplier %>
+          <% if @supplier.new_record? %>
+            <% form_for @supplier do |f| %>
+              <table id="supplier">
+                <tr>
+                  <td class="business name" rowspan="2"><%= f.text_field :name %></td>
+                  <td><%= f.text_field :contact %></td>
+                  <th>Returpolitik</th>
+                  <th>Bem&aelig;rkninger</th>
+                </tr>
+                <tr>
+                  <td class="phone"><%= f.text_field :phone %></td>
+                  <td rowspan="2"><%= f.text_area :return_policy %></td>
+                  <td rowspan="2"><%= f.text_area :remarks %></td>
+                </tr>
+                <tr>
+                  <td class="id">Kundenr.: <%= f.text_field :customer_id %></td>
+                  <td><%= f.text_field :email %></td>
+                </tr>
+              </table>
+              <%= f.submit %>
+            <% end %>
+          <% else %>
             <table id="supplier">
               <tr>
-                <td class="business name" rowspan="2"><%= f.text_field :name %></td>
-                <td><%= f.text_field :contact %></td>
-                <th>Returpolitik</th>
-                <th>Bem&aelig;rkninger</th>
+                <td class="business name" rowspan="2"><%= @supplier.name %></td>
+                <td><%= @supplier.contact %></td>
+                <% unless @supplier.return_policy.blank? %><th>Returpolitik</th><% end %>
+                <% unless @supplier.remarks.blank? %><th>Bem&aelig;rkninger</th><% end %>
               </tr>
               <tr>
-                <td class="phone"><%= f.text_field :phone %></td>
-                <td rowspan="2"><%= f.text_area :return_policy %></td>
-                <td rowspan="2"><%= f.text_area :remarks %></td>
+                <td class="phone"><%= @supplier.phone %></td>
+                <% unless @supplier.return_policy.blank? %><td rowspan="2"><%= @supplier.return_policy %></td><% end %>
+                <% unless @supplier.remarks.blank? %><td rowspan="2"><%= @supplier.remarks %></td><% end %>
               </tr>
               <tr>
-                <td class="id">Kundenr.: <%= f.text_field :customer_id %></td>
-                <td><%= f.text_field :email %></td>
+                <td class="id"><% unless @supplier.customer_id.blank? %>Kundenr.: <%= @supplier.customer_id %><% end %></td>
+                <td><%= link_to @supplier.email, "mailto:#{@supplier.email}" %></td>
               </tr>
             </table>
-            <%= f.submit %>
           <% end %>
-        <% else %>
-          <table id="supplier">
-            <tr>
-              <td class="business name" rowspan="2"><%= @supplier.name %></td>
-              <td><%= @supplier.contact %></td>
-              <% unless @supplier.return_policy.blank? %><th>Returpolitik</th><% end %>
-              <% unless @supplier.remarks.blank? %><th>Bem&aelig;rkninger</th><% end %>
-            </tr>
-            <tr>
-              <td class="phone"><%= @supplier.phone %></td>
-              <% unless @supplier.return_policy.blank? %><td rowspan="2"><%= @supplier.return_policy %></td><% end %>
-              <% unless @supplier.remarks.blank? %><td rowspan="2"><%= @supplier.remarks %></td><% end %>
-            </tr>
-            <tr>
-              <td class="id"><% unless @supplier.customer_id.blank? %>Kundenr.: <%= @supplier.customer_id %><% end %></td>
-              <td><%= link_to @supplier.email, "mailto:#{@supplier.email}" %></a></td>
-            </tr>
-          </table>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <%= yield %>
 
