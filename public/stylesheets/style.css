@@ -118,7 +118,7 @@ table#supplier th, table#supplier td {
   border-left: 1px solid #999;
 }
 
-table#supplier td.name, table#supplier td.id {
+table#supplier td.name, table#supplier td.customer_id {
   border-left: 0;
   padding-left: 0;
 }
@@ -132,43 +132,9 @@ table#supplier td.phone {
   height: 1em;
 }
 
-/* FORM */
-
-form#new_supplier input, form#new_supplier textarea {
-  border: 1px solid #999;
-  padding: 2px 4px;
-  width: 15em;
-  -moz-border-radius: 4px;
-}
-
-form#new_supplier input {
-  margin-bottom: 1px;
-}
-
-form#new_supplier textarea {
-  height: 3em;
-}
-
-form#new_supplier td.name input {
-  color: inherit;
-  font-size: inherit;
-  font-variant: inherit;
-  width: 8.75em;
-}
-
-form#new_supplier input[type=submit] {
-  background-color: #ddd;
-  display: block;
-  margin: 0 auto 8px auto;
-  width: inherit;
-}
-
-form#new_supplier input[type=submit]:hover {
-  background-color: #eee;
-}
-
-form#new_supplier input[type=submit]:active {
-  background-color: #fff;
+table#supplier td.customer_id:before {
+  color: #666;
+  content: 'Kundenr.: ';
 }
 
 
