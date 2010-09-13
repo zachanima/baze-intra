@@ -1,7 +1,4 @@
 class SuppliersController < ApplicationController
-  def index
-  end
-
   def show
     @supplier = Supplier.find(params[:id])
   end
@@ -12,8 +9,11 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(params[:supplier])
-    @supplier.business = true
-    @supplier.save
-    redirect_to @supplier
+
+    if @supplier.save
+      redirect_to @supplier
+    else
+      render :action => :new
+    end
   end
 end
