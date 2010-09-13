@@ -1,4 +1,4 @@
 class Supplier < ActiveRecord::Base
-  scope :business, where(:business => true)
-  scope :shop, where(:business => false)
+  scope :business, where(:kind => 'business')
+  scope :shop, where(:kind => 'shop')
 end

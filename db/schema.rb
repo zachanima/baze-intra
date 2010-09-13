@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913074743) do
+ActiveRecord::Schema.define(:version => 20100913130248) do
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20100913074743) do
     t.string   "email"
     t.string   "return_policy"
     t.string   "remarks"
-    t.boolean  "business"
+    t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

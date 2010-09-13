@@ -14,6 +14,14 @@ body {
   margin: 0;
 }
 
+a {
+  color: #33f;
+}
+
+a:hover {
+  color: #f33;
+}
+
 th {
   text-align: left;
 }
@@ -107,34 +115,20 @@ ul#nav.shop {
  * SUPPLIER *
  ************/
 
-table#supplier {
-  border-collapse: collapse;
-  margin: 8px;
-}
-
-table#supplier th, table#supplier td {
+div#top > div {
+  display: table-cell;
+  padding: 8px 12px;
   vertical-align: top;
-  padding: 0 12px;
-  border-left: 1px solid #999;
 }
 
-table#supplier td.name, table#supplier td.customer_id {
-  border-left: 0;
-  padding-left: 0;
-}
-
-table#supplier td.name {
+div#supplier_name {
   font-size: 20pt;
-  font-variant: small-caps;
+  letter-spacing: 1pt;
 }
 
-table#supplier td.phone {
-  height: 1em;
-}
-
-table#supplier td.customer_id:before {
-  color: #666;
-  content: 'Kundenr.: ';
+div#supplier_customer_id:before {
+  color: #999;
+  content: 'Kundenr. ';
 }
 
 

@@ -14,23 +14,26 @@
       </ul>
 
       <% if @supplier %>
-        <table id="supplier">
-          <tr>
-            <td class="business name" rowspan="2"><%= @supplier.name %></td>
-            <td><%= @supplier.contact %></td>
-            <th>Returpolitik</th>
-            <th>Bem&aelig;rkninger</th>
-          </tr>
-          <tr>
-            <td class="phone"><%= @supplier.phone %></td>
-            <td rowspan="2"><%= @supplier.return_policy %></td>
-            <td rowspan="2"><%= @supplier.remarks %></td>
-          </tr>
-          <tr>
-            <td class="customer_id"><%= @supplier.customer_id %></td>
-            <td><%= mail_to @supplier.email %></td>
-          </tr>
-        </table>
+        <div>
+          <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
+          <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
+        </div>
+
+        <div>
+          <%= @supplier.contact %><br />
+          <%= @supplier.phone %><br />
+          <%= mail_to @supplier.email %><br />
+        </div>
+
+        <div>
+          <strong>Returpolitik</strong><br />
+          <%= @supplier.return_policy %>
+        </div>
+
+        <div>
+          <strong>Bem&aelig;rkninger</strong><br />
+          <%= @supplier.remarks %>
+        </div>
       <% end %>
     </div>
 
