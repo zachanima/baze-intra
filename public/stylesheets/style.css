@@ -1,0 +1,191 @@
+/***********
+ * GENERAL *
+ ***********/
+
+* {
+  font-family: arial, sans-serif;
+}
+
+body, th, td, input {
+  font-size: 9pt;
+}
+
+body {
+  margin: 0;
+}
+
+th {
+  text-align: left;
+}
+
+.business {
+  color: #33f;
+}
+
+.shop {
+  color: #f33;
+}
+
+
+
+/**********
+ * LAYOUT *
+ **********/
+
+div#top, div#bottom {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+}
+
+div#top {
+  border-bottom: 1px solid #999;
+}
+
+div#bottom {
+  border-top: 1px solid #999;
+  bottom: 0;
+}
+
+div.center {
+  color: #666;
+  font-size: 24pt;
+  margin-top: -12pt;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+
+
+/**************
+ * NAVIGATION *
+ **************/
+
+ul#nav {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  padding: 2px 2px;
+}
+
+ul#nav li {
+  display: inline-block;
+  border: 1px solid #999;
+  padding: 2px 4px;
+  margin-right: -1px;
+}
+
+ul#nav li.active, ul#nav li:hover {
+  background-color: #fff;
+}
+
+ul#nav a {
+  color: #666;
+  text-decoration: none;
+}
+
+ul#nav.business {
+  background-color: #ccf;
+  border-bottom: 1px solid #999;
+}
+
+ul#nav.shop {
+  background-color: #fcc;
+  border-top: 1px solid #999;
+}
+
+
+
+/************
+ * SUPPLIER *
+ ************/
+
+table#supplier {
+  border-collapse: collapse;
+  margin: 8px;
+}
+
+table#supplier th, table#supplier td {
+  vertical-align: top;
+  padding: 0 12px;
+  border-left: 1px solid #999;
+}
+
+table#supplier td.name, table#supplier td.id {
+  border-left: 0;
+  padding-left: 0;
+}
+
+table#supplier td.name {
+  font-size: 20pt;
+  font-variant: small-caps;
+}
+
+
+table#supplier td.phone {
+  height: 1em;
+}
+
+
+
+/********
+ * DATA *
+ ********/
+
+table#data {
+  border-collapse: collapse;
+  margin: 100px 0 62px 0;
+  width: 100%;
+}
+
+table#data thead {
+  background-color: #ccc;
+}
+
+table#data tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table#data th, table#data td {
+  border-left: 1px solid #999;
+  padding-left: 4px;
+}
+
+table#data th:first-child, table#data td:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+table#data tr:first-child td {
+  padding: 0;
+}
+
+table#data tr:first-child td:nth-child(2) {
+  padding-left: 4px;
+}
+
+table#data input {
+  padding: 3px;
+  border-width: 0;
+  width: 100%;
+}
+
+table#data input:focus {
+  background-color: #ff9;
+}
+
+table#data input:disabled {
+  background-color: #ddd;
+}
+
+
+
+/***********
+ * ACTIONS *
+ ***********/
+
+div#actions {
+  margin: 8px;
+}

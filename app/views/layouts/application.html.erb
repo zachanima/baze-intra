@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Intra</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>Baze IntraNet</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
 
-<%= yield %>
+    <div id="top">
+      <ul class="business" id="nav">
+        <%= render Supplier.business %>
+        <li><%= link_to '+', new_supplier_path %></a></li>
+      </ul>
 
-</body>
+      <% if @supplier %>
+        <table id="supplier">
+          <tr>
+            <td class="business name" rowspan="2"><%= @supplier.name %></td>
+            <td><%= @supplier.contact %></td>
+            <% unless @supplier.return_policy.blank? %><th>Returpolitik</th><% end %>
+            <% unless @supplier.remarks.blank? %><th>Bem&aelig;rkninger</th><% end %>
+          </tr>
+          <tr>
+            <td class="phone"><%= @supplier.phone %></td>
+            <% unless @supplier.return_policy.blank? %><td rowspan="2"><%= @supplier.return_policy %></td><% end %>
+            <% unless @supplier.remarks.blank? %><td rowspan="2"><%= @supplier.remarks %></td><% end %>
+          </tr>
+          <tr>
+            <td class="id">Kundenr.: <%= @supplier.customer_id %></td>
+            <td><%= link_to @supplier.email, "mailto:#{@supplier.email}" %></a></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <div id="bottom">
+      <% if @orders %>
+        <div id="actions">
+          Med valgte:
+          <input disabled="disabled" type="submit" value="Slet">
+          <input disabled="disabled" type="submit" value="Kopi&eacute;r">
+          <input disabled="disabled" type="submit" value="Bestilt af ...">
+        </div>
+      <% end %>
+
+      <ul class="shop" id="nav">
+        <%= render Supplier.shop %>
+        <li><%= link_to '+', new_supplier_path %></li>
+      </ul>
+    </div>
+      
+  </body>
 </html>
