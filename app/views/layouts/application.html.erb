@@ -7,53 +7,57 @@
   </head>
   <body>
 
-    <div id="top">
-      <ul class="business" id="nav">
-        <%= render Supplier.business %>
-        <li><%= link_to '+', new_supplier_path %></li>
-      </ul>
+    <% 2.times do %>
+      <div id="top"<%= cycle '', raw(' class="hidden"') %>>
+        <ul class="business" id="nav">
+          <%= render Supplier.business %>
+          <li><%= link_to '+', new_supplier_path %></li>
+        </ul>
 
-      <% if @supplier %>
-        <div>
-          <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
-          <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
-        </div>
+        <% if @supplier and not @supplier.new_record? %>
+          <div>
+            <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
+            <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
+          </div>
 
-        <div>
-          <%= @supplier.contact %><br />
-          <%= @supplier.phone %><br />
-          <%= mail_to @supplier.email %><br />
-        </div>
+          <div>
+            <%= @supplier.contact %><br />
+            <%= @supplier.phone %><br />
+            <%= mail_to @supplier.email %><br />
+          </div>
 
-        <div>
-          <strong>Returpolitik</strong><br />
-          <%= @supplier.return_policy %>
-        </div>
+          <div>
+            <strong>Returpolitik</strong><br />
+            <%= @supplier.return_policy %>
+          </div>
 
-        <div>
-          <strong>Bem&aelig;rkninger</strong><br />
-          <%= @supplier.remarks %>
-        </div>
-      <% end %>
-    </div>
+          <div>
+            <strong>Bem&aelig;rkninger</strong><br />
+            <%= @supplier.remarks %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <%= yield %>
 
-    <div id="bottom">
-      <% if @orders %>
-        <div id="actions">
-          Med valgte:
-          <input disabled="disabled" type="submit" value="Slet">
-          <input disabled="disabled" type="submit" value="Kopi&eacute;r">
-          <input disabled="disabled" type="submit" value="Bestilt af ...">
-        </div>
-      <% end %>
+    <% 2.times do %>
+      <div id="bottom"<%= cycle '', raw(' class="hidden"') %>>
+        <% if @orders %>
+          <div id="actions">
+            Med valgte:
+            <input disabled="disabled" type="submit" value="Slet">
+            <input disabled="disabled" type="submit" value="Kopi&eacute;r">
+            <input disabled="disabled" type="submit" value="Bestilt af ...">
+          </div>
+        <% end %>
 
-      <ul class="shop" id="nav">
-        <%= render Supplier.shop %>
-        <li><%= link_to '+', new_supplier_path %></li>
-      </ul>
-    </div>
+        <ul class="shop" id="nav">
+          <%= render Supplier.shop %>
+          <li><%= link_to '+', new_supplier_path %></li>
+        </ul>
+      </div>
+    <% end %>
       
   </body>
 </html>

@@ -55,9 +55,9 @@ div#bottom {
   bottom: 0;
 }
 
-div#fake_top {
-  margin-bottom: 1px;
+div#top.hidden, div#bottom.hidden {
   position: relative;
+  visibility: hidden;
 }
 
 div.center {
