@@ -1,0 +1,43 @@
+<% form_for @supplier, :html => { :class => 'supplier' } do |f| %>
+  <fieldset>
+    <legend><%= raw(@supplier.new_record? ? 'Ny leverand&oslash;r' : "Redig&eacute;r leverand&oslash;r <span class=\"#{@supplier.kind}\">#{@supplier.name}</span>") %></legend>
+    <ol>
+      <li>
+        <%= f.label :name, raw('Navn <em>*</em>') %>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <%= f.label :customer_id, 'Kundenr.' %>
+        <%= f.text_field :customer_id %>
+      </li>
+      <li>
+        <%= f.label :contact, 'Kontaktperson' %>
+        <%= f.text_field :contact %>
+      </li>
+      <li>
+        <%= f.label :phone, 'Telefonnr.' %>
+        <%= f.text_field :phone %>
+      </li>
+      <li>
+        <%= f.label :email, 'Email-adresse' %>
+        <%= f.text_field :email %>
+      </li>
+      <li>
+        <%= f.label :return_policy, 'Returpolitik' %>
+        <%= f.text_area :return_policy %>
+      </li>
+      <li>
+        <%= f.label :remarks, raw('Bem&aelig;rkninger') %>
+        <%= f.text_area :remarks %>
+      </li>
+      <li>
+        <fieldset>
+          <legend>Er denne leverand&oslash;r butik eller erhverv? <em>*</em></legend>
+          <label><%= f.radio_button :kind, 'shop' %> Butik</label>
+          <label><%= f.radio_button :kind, 'business' %> Erhverv</label>
+        </fieldset>
+      </li>
+    </ol>
+    <%= f.submit raw(@supplier.new_record? ? 'Opret leverand&oslash;r' : 'Opdat&eacute;r leverand&oslash;r') %>
+  </fieldset>
+<% end %>
