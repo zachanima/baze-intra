@@ -94,6 +94,10 @@ ul#nav li.active, ul#nav li:hover {
   background-color: #fff;
 }
 
+ul#nav li.active a {
+  color: #000;
+}
+
 ul#nav a {
   color: #666;
   text-decoration: none;
@@ -181,6 +185,88 @@ table#data input:focus {
 
 table#data input:disabled {
   background-color: #ddd;
+}
+
+
+
+/********
+ * FORM *
+ ********/
+
+form.supplier {
+  margin: 16px auto;
+  width: 600px;
+}
+
+form.supplier fieldset {
+  border-width: 0;
+}
+
+form.supplier > fieldset > legend {
+  color: #666;
+  font-size: 24pt;
+  padding: 0;
+}
+
+form.supplier ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+form.supplier li {
+  padding: 12px 0;
+}
+
+form.supplier li:last-child {
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+}
+
+form.supplier label {
+  display: block;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+form.supplier em {
+  font-style: normal;
+  color: #f33;
+}
+
+form.supplier input[type=text],
+form.supplier textarea {
+  font-size: 12pt;
+  padding: 4px;
+  width: 100%;
+}
+
+form.supplier textarea {
+  height: 4.5em;
+}
+
+form.supplier fieldset fieldset {
+  margin: 0;
+  padding: 4px 0;
+}
+
+form.supplier fieldset fieldset legend {
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 0;
+}
+
+form.supplier fieldset fieldset label {
+  margin: 4px 0 4px 32px;
+}
+
+form.supplier input[type=submit] {
+  display: block;
+  float: right;
+  font-size: 12pt;
+  font-weight: bold;
+  margin: 16px 0;
+  padding: 4px 8px;
 }
 
 
