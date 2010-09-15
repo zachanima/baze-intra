@@ -1,1 +1,5 @@
-<li><%= link_to supplier.name, supplier %></li>
+<% if supplier === @supplier %>
+  <li class="active"><%= link_to supplier.name, edit_supplier_path %></li>
+<% else %>
+  <li><%= link_to supplier.name, supplier %></li>
+<% end %>
