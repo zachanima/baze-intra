@@ -229,7 +229,7 @@ form.supplier label {
   font-weight: bold;
 }
 
-form.supplier em {
+form.supplier label em {
   font-style: normal;
   color: #f33;
 }
@@ -267,6 +267,23 @@ form.supplier input[type=submit] {
   font-weight: bold;
   margin: 16px 0;
   padding: 4px 8px;
+}
+
+form.supplier div.field_with_errors {
+  background-color: #fcc;
+  border: 1px solid #f33;
+  margin: -12px;
+  padding: 11px;
+}
+
+form.supplier div.field_with_errors:first-child {
+  border-bottom-width: 0;
+  padding-bottom: 6px;
+}
+
+form.supplier div.field_with_errors:last-child {
+  border-top-width: 0;
+  padding-top: 6px;
 }
 
 
