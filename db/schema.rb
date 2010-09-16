@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913130248) do
+ActiveRecord::Schema.define(:version => 20100916075234) do
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(:version => 20100913130248) do
     t.string   "contact"
     t.string   "phone"
     t.string   "email"
-    t.string   "return_policy"
-    t.string   "remarks"
+    t.text     "return_policy", :limit => 255
+    t.text     "remarks",       :limit => 255
     t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"

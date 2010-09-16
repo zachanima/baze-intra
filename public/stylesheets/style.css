@@ -115,9 +115,9 @@ ul#nav.shop {
 
 
 
-/************
- * SUPPLIER *
- ************/
+/*******
+ * TOP *
+ *******/
 
 div#top > div {
   display: table-cell;
@@ -133,6 +133,10 @@ div#supplier_name {
 div#supplier_customer_id:before {
   color: #999;
   content: 'Kundenr. ';
+}
+
+div#top div.text {
+  white-space: pre-line; 
 }
 
 
