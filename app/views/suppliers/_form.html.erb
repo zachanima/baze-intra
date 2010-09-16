@@ -32,9 +32,9 @@
       </li>
       <li>
         <fieldset>
-          <legend>Er denne leverand&oslash;r butik eller erhverv? <em>*</em></legend>
-          <label><%= f.radio_button :kind, 'shop' %> Butik</label>
-          <label><%= f.radio_button :kind, 'business' %> Erhverv</label>
+          <legend>Er denne leverand&oslash;r <span class="business">erhverv</span> eller <span class="shop">butik</span>? <em>*</em></legend>
+          <label class="business"><%= f.radio_button :kind, 'business' %> Erhverv</label>
+          <label class="shop"><%= f.radio_button :kind, 'shop' %> Butik</label>
         </fieldset>
       </li>
     </ol>
