@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Baze IntraNet</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <% 2.times do %>
+      <div id="top"<%= cycle '', raw(' class="hidden"') %>>
+        <ul class="business" id="nav">
+          <%= render Supplier.business %>
+          <li><%= link_to '+', new_supplier_path %></li>
+        </ul>
+
+        <div>
+          <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
+          <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
+        </div>
+
+        <div>
+          <%= @supplier.contact %><br />
+          <%= @supplier.phone %><br />
+          <%= mail_to @supplier.email %><br />
+        </div>
+
+        <div class="text">
+          <strong>Returpolitik</strong>
+          <%= @supplier.return_policy %>
+        </div>
+
+        <div class="text">
+          <strong>Bem&aelig;rkninger</strong>
+          <%= @supplier.remarks %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= form_for [@supplier, @order], :url => orders_update_supplier_path(@supplier) do %>
+      <%= yield %>
+
+      <% 2.times do %>
+        <div id="bottom"<%= cycle '', raw(' class="hidden"') %>>
+          <div id="actions">
+            Med valgte:
+            <input name="create" type="submit" style="display: none;">
+            <input name="delete" type="submit" value="Slet">
+            <input name="copy" type="submit" value="Kopi&eacute;r">
+            <input name="ordered_by" type="submit" value="Bestilt af ...">
+          </div>
+
+          <ul class="shop" id="nav">
+            <%= render Supplier.shop %>
+            <li><%= link_to '+', new_supplier_path %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+        
+  </body>
+</html>

@@ -6,6 +6,7 @@ class SuppliersController < ApplicationController
   def show
     @order = Order.new
     @orders = @supplier.orders.order("created_at desc")
+    render :layout => 'show_supplier'
   end
 
   def new
@@ -47,10 +48,6 @@ class SuppliersController < ApplicationController
   end
 
   private
-  def find_supplier
-    @supplier = Supplier.find(params[:id])
-  end
-
   def order_create
     @supplier.orders.build(params[:order]).save
   end

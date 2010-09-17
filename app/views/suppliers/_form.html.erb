@@ -1,4 +1,4 @@
-<% form_for @supplier, :html => { :class => 'supplier' } do |f| %>
+<% form_for @supplier, :html => { :class => 'member' } do |f| %>
   <fieldset>
     <legend><%= raw(@supplier.new_record? ? 'Ny leverand&oslash;r' : "Redig&eacute;r leverand&oslash;r <span class=\"#{@supplier.kind}\">#{@supplier.name}</span>") %></legend>
     <ol>

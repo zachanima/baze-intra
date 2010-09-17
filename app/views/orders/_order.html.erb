@@ -1,6 +1,6 @@
 <tr>
   <td><%= check_box_tag 'order_ids[]', order.id %></td>
-  <td><%= order.created_at.to_s(:short) %></td>
+  <td><%= link_to order.created_at.to_s(:short), edit_supplier_order_path(@supplier, order) %></td>
   <td><%= order.created_by %></td>
   <td><%= order.good %></td>
   <td><%= order.size %></td>

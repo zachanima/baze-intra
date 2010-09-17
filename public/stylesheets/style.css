@@ -199,75 +199,75 @@ table#data input:disabled {
  * FORM *
  ********/
 
-form.supplier {
+form.member {
   margin: 16px auto;
   width: 600px;
 }
 
-form.supplier fieldset {
+form.member fieldset {
   border-width: 0;
 }
 
-form.supplier > fieldset > legend {
+form.member > fieldset > legend {
   color: #666;
   font-size: 24pt;
   padding: 0;
 }
 
-form.supplier ol {
+form.member ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-form.supplier li {
+form.member li {
   padding: 12px 0;
 }
 
-form.supplier li:last-child {
+form.member li:last-child {
   border: 1px solid #ccc;
   border-width: 1px 0;
 }
 
-form.supplier label {
+form.member label {
   display: block;
   font-size: 12pt;
   font-weight: bold;
 }
 
-form.supplier .required:after {
+form.member .required:after {
   color: #f33;
   content: '*';
   margin-left: 4px;
 }
 
-form.supplier input[type=text],
-form.supplier textarea {
+form.member input[type=text],
+form.member textarea {
   font-size: 12pt;
   padding: 4px;
   width: 100%;
 }
 
-form.supplier textarea {
+form.member textarea {
   height: 4.5em;
 }
 
-form.supplier fieldset fieldset {
+form.member fieldset fieldset {
   margin: 0;
   padding: 4px 0;
 }
 
-form.supplier fieldset fieldset legend {
+form.member fieldset fieldset legend {
   font-size: 12pt;
   font-weight: bold;
   padding: 0;
 }
 
-form.supplier fieldset fieldset label {
+form.member fieldset fieldset label {
   margin: 4px 0 4px 32px;
 }
 
-form.supplier input[type=submit] {
+form.member input[type=submit] {
   display: block;
   float: right;
   font-size: 12pt;
@@ -276,19 +276,19 @@ form.supplier input[type=submit] {
   padding: 4px 8px;
 }
 
-form.supplier div.field_with_errors {
+form.member div.field_with_errors {
   background-color: #fcc;
   border: 1px solid #f33;
   margin: -12px;
   padding: 11px;
 }
 
-form.supplier div.field_with_errors:first-child {
+form.member div.field_with_errors:first-child {
   border-bottom-width: 0;
   padding-bottom: 6px;
 }
 
-form.supplier div.field_with_errors:last-child {
+form.member div.field_with_errors:last-child {
   border-top-width: 0;
   padding-top: 6px;
 }
