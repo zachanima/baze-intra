@@ -91,7 +91,7 @@ ul#nav li {
 }
 
 ul#nav li.active, ul#nav li:hover {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 ul#nav li.active a {
@@ -99,18 +99,26 @@ ul#nav li.active a {
 }
 
 ul#nav a {
-  color: #666;
+  color: #333;
   text-decoration: none;
 }
 
 ul#nav.business {
-  background-color: #ccf;
+  background-color: #99f;
   border-bottom: 1px solid #999;
 }
 
+ul#nav.business li {
+  background-color: #ccf;
+}
+
 ul#nav.shop {
-  background-color: #fcc;
+  background-color: #f99;
   border-top: 1px solid #999;
+}
+
+ul#nav.shop li {
+  background-color: #fcc;
 }
 
 
