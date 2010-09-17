@@ -1,5 +1,7 @@
 Intra::Application.routes.draw do
-  resources :suppliers
+  resources :suppliers do
+    resources :orders
+  end
 
   root :to => "suppliers#index"
 end
