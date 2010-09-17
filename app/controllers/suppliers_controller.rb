@@ -35,13 +35,12 @@ class SuppliersController < ApplicationController
     if params[:create]
       order_create
     elsif params[:order_ids]
-      @orders = Order.find(params[:order_ids])
       if params[:delete]
         orders_destroy
       elsif params[:copy]
         orders_copy
-      elsif params[:complete]
-        orders_complete
+      elsif params[:ordered_by]
+        orders_ordered_by
       end
     end
     redirect_to @supplier
@@ -57,11 +56,21 @@ class SuppliersController < ApplicationController
   end
 
   def orders_destroy
+    Order.destroy(params[:order_ids])
   end
 
   def orders_copy
+    Order.find(params[:order_ids]).collect(&:clone).each do |clone|
+      clone.created_at = nil
+      clone.save
+    end
   end
 
-  def orders_complete
+  def orders_ordered_by
+    Order.find(params[:order_ids]).each do |order|
+      order.ordered_at = Date.today
+      order.ordered_by = params[:ordered_by]
+      order.save
+    end
   end
 end

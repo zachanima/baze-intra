@@ -146,6 +146,7 @@ div#top div.text {
  ********/
 
 table#data {
+  border-bottom: 1px solid #999;
   border-collapse: collapse;
   margin: 0 0 62px 0;
   width: 100%;
@@ -167,6 +168,7 @@ table#data th, table#data td {
 table#data th:first-child, table#data td:first-child {
   border-left: 0;
   padding: 1px 1px 1px 0;
+  width: 1px;
 }
 
 table#data tr:first-child td {
