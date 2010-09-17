@@ -233,9 +233,10 @@ form.supplier label {
   font-weight: bold;
 }
 
-form.supplier label em {
-  font-style: normal;
+form.supplier .required:after {
   color: #f33;
+  content: '*';
+  margin-left: 4px;
 }
 
 form.supplier input[type=text],

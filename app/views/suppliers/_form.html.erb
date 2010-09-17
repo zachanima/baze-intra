@@ -3,7 +3,7 @@
     <legend><%= raw(@supplier.new_record? ? 'Ny leverand&oslash;r' : "Redig&eacute;r leverand&oslash;r <span class=\"#{@supplier.kind}\">#{@supplier.name}</span>") %></legend>
     <ol>
       <li>
-        <%= f.label :name, raw('Navn <em>*</em>') %>
+        <%= f.label :name, 'Navn', :class => 'required' %>
         <%= f.text_field :name %>
       </li>
       <li>
@@ -32,7 +32,7 @@
       </li>
       <li>
         <fieldset>
-          <legend>Er denne leverand&oslash;r <span class="business">erhverv</span> eller <span class="shop">butik</span>? <em>*</em></legend>
+          <legend class="required">Er denne leverand&oslash;r <span class="business">erhverv</span> eller <span class="shop">butik</span>?</legend>
           <label class="business"><%= f.radio_button :kind, 'business' %> Erhverv</label>
           <label class="shop"><%= f.radio_button :kind, 'shop' %> Butik</label>
         </fieldset>
