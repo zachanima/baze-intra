@@ -1,0 +1,13 @@
+<tr>
+  <td><input type="checkbox" /></td>
+  <td><%= order.created_at.to_s(:short) %></td>
+  <td><%= order.created_by %></td>
+  <td><%= order.good %></td>
+  <td><%= order.size %></td>
+  <td><%= order.color %></td>
+  <td><%= order.quantity %></td>
+  <td><%= order.case_number %></td>
+  <td><%= order.ordered_at.to_s(:short) if order.ordered_at %></td>
+  <td><%= order.ordered_by %></td>
+  <td><%= order.remarks %></td>
+</tr>

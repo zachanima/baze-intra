@@ -18,28 +18,16 @@
     <tr>
       <td></td>
       <td><%= DateTime.now.to_s(:short) %></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" /></td>
-      <td><input type="text" disabled="disabled" /></td>
-      <td><input type="text" disabled="disabled" /></td>
-      <td><input type="text" /></td>
+      <td><%= text_field :order, :created_by %></td>
+      <td><%= text_field :order, :good %></td>
+      <td><%= text_field :order, :size %></td>
+      <td><%= text_field :order, :color %></td>
+      <td><%= text_field :order, :quantity %></td>
+      <td><%= text_field :order, :case_number %></td>
+      <td><%= text_field :order, :ordered_at, :disabled => true %></td>
+      <td><%= text_field :order, :ordered_by, :disabled => true %></td>
+      <td><%= text_field :order, :remarks %></td>
     </tr>
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td><%= DateTime.now.to_s(:short) %></td>
-      <td>DF</td>
-      <td>Oh my god is this real?</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Pilotjakke XDforDen kan det hele stå der, uden det bliver skubbet ud?</td>
-    </tr>
+    <%= render @orders %>
   </tbody>
 </table>
