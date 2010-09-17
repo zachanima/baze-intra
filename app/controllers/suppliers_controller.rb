@@ -5,7 +5,7 @@ class SuppliersController < ApplicationController
 
   def show
     @order = Order.new
-    @orders = @supplier.orders
+    @orders = @supplier.orders.order("created_at desc")
   end
 
   def new

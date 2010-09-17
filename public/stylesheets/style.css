@@ -161,12 +161,12 @@ table#data tbody tr:nth-child(even) {
 
 table#data th, table#data td {
   border-left: 1px solid #999;
-  padding-left: 4px;
+  padding: 1px 8px 1px 4px;
 }
 
 table#data th:first-child, table#data td:first-child {
   border-left: 0;
-  padding-left: 0;
+  padding: 1px 1px 1px 0;
 }
 
 table#data tr:first-child td {
