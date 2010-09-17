@@ -177,7 +177,7 @@ table#data tr:first-child td:nth-child(2) {
   padding-left: 4px;
 }
 
-table#data input {
+table#data input[type=text] {
   padding: 3px;
   border-width: 0;
   width: 100%;
