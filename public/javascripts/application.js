@@ -11,15 +11,16 @@ $(function() {
     $('#actions input[value]').attr('disabled', $('tbody :checked').length == 0);
   });
 
-  if ($('#data').length > 0) {
-    setInterval(updateOrders, 10000);
+  if ($('#orders').length > 0) {
+    setTimeout(updateOrders, 10000);
   }
 
 });
 
 function updateOrders() {
-  var supplier_id = $('#data').attr('data-id');
-  var after = $('tbody tr:nth-child(2)').attr('data-time');
-  $.getScript('/suppliers/' + supplier_id + '/orders.js?after=' + after);
+  var supplier_id = $('#orders').attr('data-supplier_id');
+  var order_id = $('tbody tr:first-child').attr('data-order_id');
+  $.getScript('/suppliers/' + supplier_id + '/orders.js?id=' + order_id);
+  setTimeout(updateOrders, 10000);
 }
 

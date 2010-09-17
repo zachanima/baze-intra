@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_filter :find_order, :only => [:edit, :update]
 
   def index
-    @orders = @supplier.orders.where('created_at > ?', Time.at(params[:after].to_i + 1)).order('created_at desc')
+    @orders = @supplier.orders.where('id > ?', params[:id]).order('created_at desc')
   end
 
   def edit

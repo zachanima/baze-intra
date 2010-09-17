@@ -1,4 +1,4 @@
-<tr data-time="<%= order.created_at.to_i %>">
+<tr data-order_id="<%= order.id %>">
   <td><%= check_box_tag 'order_ids[]', order.id, false, :id => dom_id(order) %></td>
   <td><%= link_to order.created_at.to_s(:short), edit_supplier_order_path(@supplier, order) %></td>
   <td><%= order.created_by %></td>
