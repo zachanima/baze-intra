@@ -8,13 +8,13 @@
   <body>
 
     <% 2.times do %>
-      <div id="top"<%= cycle '', raw(' class="hidden"') %>>
+      <div id="business"<%= cycle '', raw(' class="hidden"') %>>
         <ul class="nav">
           <%= render Supplier.business %>
           <li><%= link_to '+', new_supplier_path %></li>
         </ul>
 
-        <% unless @supplier.nil? or @supplier.new_record? %>
+        <% if params[:action] == 'show' %>
           <div>
             <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
             <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
@@ -42,7 +42,7 @@
       <%= yield %>
 
     <% 2.times do %>
-      <div id="bottom"<%= cycle '', raw(' class="hidden"') %>>
+      <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
         <ul class="nav">
           <%= render Supplier.shop %>
           <li><%= link_to '+', new_supplier_path %></li>
