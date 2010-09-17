@@ -160,11 +160,11 @@ table#data {
   width: 100%;
 }
 
-table#data thead {
+table#data th {
   background-color: #ccc;
 }
 
-table#data tbody tr:nth-child(even) {
+table#data tbody tr:nth-child(odd) {
   background-color: #eee;
 }
 
@@ -179,11 +179,11 @@ table#data th:first-child, table#data td:first-child {
   width: 1px;
 }
 
-table#data tr:first-child td {
+table#data thead tr:last-child td {
   padding: 0;
 }
 
-table#data tr:first-child td:nth-child(2) {
+table#data thead tr:last-child td:nth-child(2) {
   padding-left: 4px;
 }
 

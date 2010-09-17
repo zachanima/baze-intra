@@ -8,6 +8,18 @@ $(function() {
   });
 
   $('table :checkbox').change(function() {
-    $('div#actions input[value]').attr('disabled', $('tbody :checked').length == 0);
+    $('#actions input[value]').attr('disabled', $('tbody :checked').length == 0);
   });
+
+  if ($('#data').length > 0) {
+    setInterval(updateOrders, 10000);
+  }
+
 });
+
+function updateOrders() {
+  var supplier_id = $('#data').attr('data-id');
+  var after = $('tbody tr:nth-child(2)').attr('data-time');
+  $.getScript('/suppliers/' + supplier_id + '/orders.js?after=' + after);
+}
+

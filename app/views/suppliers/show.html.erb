@@ -1,4 +1,4 @@
-<table id="data">
+<table id="data" data-id="<%= @supplier.id %>">
   <thead>
     <tr>
       <th><input type="checkbox" /></th>
@@ -13,8 +13,6 @@
       <th style="width: 2em;">af</th>
       <th>Bem&aelig;rkninger</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <td></td>
       <td><%= DateTime.now.to_s(:short) %></td>
@@ -28,6 +26,8 @@
       <td><%= text_field :order, :ordered_by, :disabled => true %></td>
       <td><%= text_field :order, :remarks %></td>
     </tr>
+  </thead>
+  <tbody>
     <%= render @orders %>
   </tbody>
 </table>
