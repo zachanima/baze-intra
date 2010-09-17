@@ -40,22 +40,22 @@ th {
  * LAYOUT *
  **********/
 
-div#top, div#bottom {
+div#business, div#shop {
   background-color: #fff;
   position: fixed;
   width: 100%;
 }
 
-div#top {
+div#business {
   border-bottom: 1px solid #999;
 }
 
-div#bottom {
+div#shop {
   border-top: 1px solid #999;
   bottom: 0;
 }
 
-div#top.hidden, div#bottom.hidden {
+div#business.hidden, div#shop.hidden {
   position: relative;
   visibility: hidden;
 }
@@ -76,48 +76,48 @@ div.center {
  * NAVIGATION *
  **************/
 
-ul#nav {
+ul.nav {
   margin: 0;
   padding: 0;
   font-weight: bold;
   padding: 1px 2px;
 }
 
-ul#nav li {
+ul.nav li {
   display: inline-block;
   border: 1px solid #999;
   padding: 2px 4px;
   margin: 1px -1px 1px 0;
 }
 
-ul#nav li.active, ul#nav li:hover {
+ul.nav li.active, ul.nav li:hover {
   background-color: #fff !important;
 }
 
-ul#nav li.active a {
+ul.nav li.active a {
   color: #000;
 }
 
-ul#nav a {
+ul.nav a {
   color: #333;
   text-decoration: none;
 }
 
-ul#nav.business {
+div#business ul.nav {
   background-color: #99f;
   border-bottom: 1px solid #999;
 }
 
-ul#nav.business li {
+div#business ul.nav li {
   background-color: #ccf;
 }
 
-ul#nav.shop {
+div#shop ul.nav {
   background-color: #f99;
   border-top: 1px solid #999;
 }
 
-ul#nav.shop li {
+div#shop ul.nav li {
   background-color: #fcc;
 }
 
@@ -127,7 +127,7 @@ ul#nav.shop li {
  * TOP *
  *******/
 
-div#top > div {
+div#business > div {
   display: table-cell;
   padding: 8px 12px;
   vertical-align: top;
@@ -143,7 +143,7 @@ div#supplier_customer_id:before {
   content: 'Kundenr. ';
 }
 
-div#top div.text {
+div#business div.text {
   white-space: pre-line; 
 }
 

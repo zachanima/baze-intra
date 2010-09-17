@@ -9,7 +9,7 @@
 
     <% 2.times do %>
       <div id="top"<%= cycle '', raw(' class="hidden"') %>>
-        <ul class="business" id="nav">
+        <ul class="nav">
           <%= render Supplier.business %>
           <li><%= link_to '+', new_supplier_path %></li>
         </ul>
@@ -43,7 +43,7 @@
 
     <% 2.times do %>
       <div id="bottom"<%= cycle '', raw(' class="hidden"') %>>
-        <ul class="shop" id="nav">
+        <ul class="nav">
           <%= render Supplier.shop %>
           <li><%= link_to '+', new_supplier_path %></li>
         </ul>

@@ -8,8 +8,8 @@
   <body>
 
     <% 2.times do %>
-      <div id="top"<%= cycle '', raw(' class="hidden"') %>>
-        <ul class="business" id="nav">
+      <div id="business"<%= cycle '', raw(' class="hidden"') %>>
+        <ul class="nav">
           <%= render Supplier.business %>
           <li><%= link_to '+', new_supplier_path %></li>
         </ul>
@@ -41,7 +41,7 @@
       <%= yield %>
 
       <% 2.times do %>
-        <div id="bottom"<%= cycle '', raw(' class="hidden"') %>>
+        <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
           <div id="actions">
             Med valgte:
             <input name="create" type="submit" style="display: none;">
@@ -50,7 +50,7 @@
             <input name="ordered_by" disabled="disabled" type="submit" value="Bestilt af ...">
           </div>
 
-          <ul class="shop" id="nav">
+          <ul class="nav">
             <%= render Supplier.shop %>
             <li><%= link_to '+', new_supplier_path %></li>
           </ul>
