@@ -39,7 +39,7 @@
       </div>
     <% end %>
 
-    <% form_for [@supplier, @order], :url => orders_update_supplier_path(@supplier) do |f| %>
+    <%= form_for [@supplier, @order], :url => orders_update_supplier_path(@supplier) do |f| %>
       <%= yield %>
 
       <% 2.times do %>
@@ -48,9 +48,9 @@
             <div id="actions">
               Med valgte:
               <input name="create" type="submit" style="display: none;">
-              <input name="delete" disabled="disabled" type="submit" value="Slet">
-              <input name="copy" disabled="disabled" type="submit" value="Kopi&eacute;r">
-              <input name="order" disabled="disabled" type="submit" value="Bestilt af ...">
+              <input name="delete" type="submit" value="Slet">
+              <input name="copy" type="submit" value="Kopi&eacute;r">
+              <input name="complete" type="submit" value="Bestilt af ...">
             </div>
           <% end %>
 

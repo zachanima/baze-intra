@@ -34,8 +34,15 @@ class SuppliersController < ApplicationController
   def orders_update
     if params[:create]
       order_create
-    else
-      render :text => 'Did you say something?'
+    elsif params[:order_ids]
+      @orders = Order.find(params[:order_ids])
+      if params[:delete]
+        orders_destroy
+      elsif params[:copy]
+        orders_copy
+      elsif params[:complete]
+        orders_complete
+      end
     end
     redirect_to @supplier
   end
@@ -47,5 +54,14 @@ class SuppliersController < ApplicationController
 
   def order_create
     @supplier.orders.build(params[:order]).save
+  end
+
+  def orders_destroy
+  end
+
+  def orders_copy
+  end
+
+  def orders_complete
   end
 end

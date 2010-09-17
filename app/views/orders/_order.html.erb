@@ -1,5 +1,5 @@
 <tr>
-  <td><input type="checkbox" /></td>
+  <td><%= check_box_tag 'order_ids[]', order.id %></td>
   <td><%= order.created_at.to_s(:short) %></td>
   <td><%= order.created_by %></td>
   <td><%= order.good %></td>
