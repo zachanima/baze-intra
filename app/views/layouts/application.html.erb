@@ -14,7 +14,7 @@
           <li><%= link_to '+', new_supplier_path %></li>
         </ul>
 
-        <% unless @supplier.new_record? %>
+        <% unless @supplier.nil? or @supplier.new_record? %>
           <div>
             <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
             <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
