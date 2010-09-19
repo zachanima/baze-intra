@@ -187,6 +187,10 @@ table#orders th:first-child, table#orders td:first-child {
   width: 1px;
 }
 
+table#orders tbody th input[type=checkbox] {
+  visibility: hidden;
+}
+
 table#orders thead tr:last-child td {
   padding: 0;
 }
