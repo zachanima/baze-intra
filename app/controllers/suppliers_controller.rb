@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
   # def index
 
   def new
-    @supplier = Supplier.new
+    @supplier = Supplier.new(:kind => params[:kind])
   end
 
   def create

@@ -11,7 +11,7 @@
       <div id="business"<%= cycle '', raw(' class="hidden"') %>>
         <ul class="nav">
           <%= render Supplier.business %>
-          <li><%= link_to '+', new_supplier_path %></li>
+          <li><%= link_to '+', "#{new_supplier_path}/business" %></li>
         </ul>
       </div>
     <% end %>
@@ -22,7 +22,7 @@
       <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
         <ul class="nav">
           <%= render Supplier.shop %>
-          <li><%= link_to '+', new_supplier_path %></li>
+          <li><%= link_to '+', "#{new_supplier_path}/shop" %></li>
         </ul>
       </div>
     <% end %>
