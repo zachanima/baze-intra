@@ -4,7 +4,7 @@ $(function() {
   });
 
   $('input[name=ordered_by]').click(function() {
-    $(this).attr('value', prompt('Hvem er du?'));
+    $(this).attr('value', prompt($(this).attr('data-prompt')));
   });
 
   $('table :checkbox').change(function() {
