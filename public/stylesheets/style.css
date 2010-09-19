@@ -143,6 +143,10 @@ div#supplier_customer_id:before {
   content: 'Kundenr. ';
 }
 
+div#supplier_contact {
+  white-space: nowrap;
+}
+
 div#business div.text {
   white-space: pre-line; 
 }
