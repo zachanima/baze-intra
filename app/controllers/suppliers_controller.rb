@@ -3,12 +3,6 @@ class SuppliersController < ApplicationController
 
   # def index
 
-  def show
-    @order = Order.new
-    @orders = @supplier.orders.order("created_at desc")
-    render :layout => 'show_supplier'
-  end
-
   def new
     @supplier = Supplier.new
   end
@@ -44,7 +38,7 @@ class SuppliersController < ApplicationController
         orders_ordered_by
       end
     end
-    redirect_to @supplier
+    redirect_to supplier_orders_path(@supplier)
   end
 
   private

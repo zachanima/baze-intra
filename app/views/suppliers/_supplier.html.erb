@@ -1,11 +1,11 @@
 <% if supplier === @supplier %>
   <li class="active">
-    <% if params[:action] == 'show' %>
+    <% if params[:action] == 'index' %>
       <%= link_to supplier.name, edit_supplier_path(supplier) %>
     <% else %>
-      <%= link_to supplier.name, supplier %>
+      <%= link_to supplier.name, supplier_orders_path(supplier) %>
     <% end %>
   </li>
 <% else %>
-  <li><%= link_to supplier.name, supplier %></li>
+  <li><%= link_to supplier.name, supplier_orders_path(supplier) %></li>
 <% end %>

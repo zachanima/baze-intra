@@ -3,7 +3,11 @@ class OrdersController < ApplicationController
   before_filter :find_order, :only => [:edit, :update]
 
   def index
-    @orders = @supplier.orders.where('id > ?', params[:id]).order('created_at desc')
+    respond_to do |format|
+      @orders = @supplier.orders.order("created_at desc")
+      format.html { @order = Order.new; render :layout => 'orders_index' }
+      format.js   { @orders = @orders.where('id > ?', params[:id]) }
+    end
   end
 
   def edit
