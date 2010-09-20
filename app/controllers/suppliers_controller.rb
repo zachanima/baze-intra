@@ -20,7 +20,7 @@ class SuppliersController < ApplicationController
 
   def update
     if @supplier.update_attributes(params[:supplier])
-      redirect_to @supplier
+      redirect_to supplier_orders_path(@supplier)
     else
       render :action => :edit
     end
