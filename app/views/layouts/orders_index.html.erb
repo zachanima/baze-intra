@@ -19,10 +19,10 @@
           <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
         </div>
 
-        <div id="supplier_contact">
-          <%= @supplier.contact %><br />
-          <%= @supplier.phone %><br />
-          <%= mail_to @supplier.email %><br />
+        <div class="text">
+          <strong>Kontakt</strong>
+          <%= @supplier.contact %>
+          <%= mail_to @supplier.email %>
         </div>
 
         <div class="text">
