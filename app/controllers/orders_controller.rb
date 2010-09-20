@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 
   def update
     @order.update_attributes(params[:order])
-    redirect_to @supplier
+    redirect_to supplier_orders_path(@supplier)
   end
     
   private
