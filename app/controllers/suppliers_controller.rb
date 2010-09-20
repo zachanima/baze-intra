@@ -30,12 +30,14 @@ class SuppliersController < ApplicationController
     if params[:create]
       order_create
     elsif params[:order_ids]
-      if params[:delete]
-        orders_destroy
+      if params[:ordered_by]
+        orders_ordered_by
+      elsif params[:cancel]
+        orders_cancel
       elsif params[:copy]
         orders_copy
-      elsif params[:ordered_by]
-        orders_ordered_by
+      elsif params[:delete]
+        orders_destroy
       end
     end
     redirect_to supplier_orders_path(@supplier)
@@ -46,8 +48,19 @@ class SuppliersController < ApplicationController
     @supplier.orders.build(params[:order]).save
   end
 
-  def orders_destroy
-    Order.destroy(params[:order_ids])
+  def orders_ordered_by
+    Order.find(params[:order_ids]).each do |order|
+      order.ordered_at = Date.today
+      order.ordered_by = params[:ordered_by]
+      order.save
+    end
+  end
+
+  def orders_cancel
+    Order.find(params[:order_ids]).each do |order|
+      order.ordered_at = order.ordered_by = nil
+      order.save
+    end
   end
 
   def orders_copy
@@ -57,11 +70,7 @@ class SuppliersController < ApplicationController
     end
   end
 
-  def orders_ordered_by
-    Order.find(params[:order_ids]).each do |order|
-      order.ordered_at = Date.today
-      order.ordered_by = params[:ordered_by]
-      order.save
-    end
+  def orders_destroy
+    Order.destroy(params[:order_ids])
   end
 end
