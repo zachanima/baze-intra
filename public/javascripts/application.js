@@ -12,7 +12,7 @@ $(function() {
   });
 
   if ($('#orders').length > 0) {
-    setTimeout(updateOrders, 10000);
+    setTimeout(updateOrders, 60000);
   }
 
 });
@@ -21,6 +21,6 @@ function updateOrders() {
   var supplier_id = $('#orders').attr('data-supplier_id');
   var order_id = $('tbody tr:first-child').attr('data-order_id');
   $.getScript('/suppliers/' + supplier_id + '/orders.js?id=' + order_id);
-  setTimeout(updateOrders, 10000);
+  setTimeout(updateOrders, 60000);
 }
 
