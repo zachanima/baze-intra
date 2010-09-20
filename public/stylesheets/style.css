@@ -144,7 +144,7 @@ div#supplier_name {
 
 div#supplier_customer_id:before {
   color: #999;
-  content: 'Kundenr. ';
+  content: 'Bazes kundenr. ';
 }
 
 div#supplier_contact {
