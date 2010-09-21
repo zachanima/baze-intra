@@ -3,11 +3,11 @@ $(function() {
     $('tbody :checkbox').attr('checked', $(this).attr('checked'));
   });
 
-  $('input[data-prompt]').click(function() {
-    $(this).attr('value', prompt($(this).attr('data-prompt')));
+  $('[data-prompt]').click(function() {
+    $(this).attr('value', prompt($(this).attr('data-prompt'), $(this).attr('data-default')));
   });
 
-  $('table :checkbox').change(function() {
+  $('tbody :checkbox').change(function() {
     $('#actions input[value]').attr('disabled', $('tbody :checked').length == 0);
   });
 
