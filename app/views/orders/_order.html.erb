@@ -10,5 +10,8 @@
   <td><%= order.case_number %></td>
   <td><%= order.ordered_at.to_s(:short) if order.ordered_at %></td>
   <td><%= order.ordered_by %></td>
-  <td><%= order.remarks %></td>
+  <td>
+    <input name="create" type="submit" style="display: none;">
+    <input name="remark" type="submit" value="<%= order.remarks %>" data-default="<%= order.remarks %>" data-prompt="Bem&aelig;rkninger?" />
+  </td>
 </tr>

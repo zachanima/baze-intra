@@ -3,6 +3,11 @@ $(function() {
     $('tbody :checkbox').attr('checked', $(this).attr('checked'));
   });
 
+  $('[name=remark]').click(function() {
+    $(':checkbox').attr('checked', false);
+    $('#order_' + $(this).parents('tr').attr('data-order_id')).attr('checked', true);
+  });
+
   $('[data-prompt]').click(function() {
     $(this).attr('value', prompt($(this).attr('data-prompt'), $(this).attr('data-default')));
   });

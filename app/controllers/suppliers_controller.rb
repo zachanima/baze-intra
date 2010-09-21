@@ -38,6 +38,8 @@ class SuppliersController < ApplicationController
         orders_copy
       elsif params[:delete]
         orders_destroy
+      elsif params[:remark]
+        orders_remark
       end
     end
     redirect_to supplier_orders_path(@supplier)
@@ -73,5 +75,12 @@ class SuppliersController < ApplicationController
 
   def orders_destroy
     Order.destroy(params[:order_ids])
+  end
+
+  def orders_remark
+    Order.find(params[:order_ids]).each do |order|
+      order.remarks = params[:remark]
+      order.save
+    end
   end
 end
