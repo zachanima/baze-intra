@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   def find_supplier
-    @supplier = Supplier.find(params[:supplier_id] || params[:id])
+    supplier_id = params[:supplier_id] || params[:id]
+    @supplier = Supplier.find(supplier_id) if Supplier.exists?(supplier_id)
   end
 end
