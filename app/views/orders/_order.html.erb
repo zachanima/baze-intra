@@ -1,5 +1,5 @@
 <%= render 'index_header' if cycle(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1) == '1' %>
-<tr data-order_id="<%= order.id %>">
+<tr>
   <td><%= check_box_tag 'order_ids[]', order.id, false, :id => dom_id(order) %></td>
   <td><%= link_to order.created_at.to_s(:short), edit_supplier_order_path(@supplier, order) %></td>
   <td><%= order.created_by %></td>
@@ -10,5 +10,5 @@
   <td><%= order.case_number %></td>
   <td><%= order.ordered_at.to_s(:short) if order.ordered_at %></td>
   <td><%= order.ordered_by %></td>
-  <td><input name="remark" type="submit" value="<%= order.remarks %>" data-default="<%= order.remarks %>" data-prompt="Bem&aelig;rkninger?" /></td>
+  <td><input name="remark" type="submit" value="<%= order.remarks %>" data-default="<%= order.remarks %>" data-order_id="<%= order.id %>" data-prompt="Bem&aelig;rkninger?" /></td>
 </tr>

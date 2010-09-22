@@ -4,11 +4,9 @@ class OrdersController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    respond_to do |format|
-      @orders = @supplier.orders.order([sort_column, sort_direction] * ' ')
-      format.html { @order = Order.new; render :layout => 'orders_index' }
-      format.js   { @orders = @orders.where('id > ?', params[:id]) }
-    end
+    @orders = @supplier.orders.order([sort_column, sort_direction] * ' ')
+    @order = Order.new
+    render :layout => 'orders_index'
   end
 
   def edit
