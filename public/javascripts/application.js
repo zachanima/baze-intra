@@ -9,7 +9,7 @@ $(function() {
   });
 
   $('[data-prompt]').click(function() {
-    $(this).attr('value', prompt($(this).attr('data-prompt'), $(this).attr('data-default')));
+    $(this).attr('value', prompt($(this).attr('data-prompt'), $(this).attr('data-default') || ''));
   });
 
   $('tbody :checkbox').change(function() {
