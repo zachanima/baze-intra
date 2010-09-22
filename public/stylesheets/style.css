@@ -172,6 +172,14 @@ table#orders th {
   background-color: #ccc;
 }
 
+table#orders th .asc:after {
+  content: '\25b2';
+}
+
+table#orders th .desc:after {
+  content: '\25bc';
+}
+
 table#orders tbody tr:nth-child(odd) {
   background-color: #eee;
 }
