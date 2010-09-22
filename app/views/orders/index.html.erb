@@ -3,7 +3,7 @@
     <%= render 'index_header' %>
     <tr>
       <td></td>
-      <td><%= DateTime.now.to_s(:short) %></td>
+      <td><%= 1.hour.from_now.to_s(:short) %></td>
       <td><%= text_field :order, :created_by %></td>
       <td><%= text_field :order, :good %></td>
       <td><%= text_field :order, :size %></td>

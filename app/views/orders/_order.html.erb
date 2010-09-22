@@ -1,7 +1,7 @@
 <%= render 'index_header' if cycle(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1) == '1' %>
 <tr>
   <td><%= check_box_tag 'order_ids[]', order.id, false, :id => dom_id(order) %></td>
-  <td><%= link_to order.created_at.to_s(:short), edit_supplier_order_path(@supplier, order) %></td>
+  <td><%= link_to (order.created_at + 2.hour).to_s(:short), edit_supplier_order_path(@supplier, order) %></td>
   <td><%= order.created_by %></td>
   <td><%= order.good %></td>
   <td><%= order.size %></td>
