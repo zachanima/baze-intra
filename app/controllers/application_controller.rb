@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
 
   private
   def find_supplier
-    supplier_id = params[:supplier_id] || params[:id]
-    @supplier = Supplier.find_by_id(supplier_id)
+    @supplier = Supplier.find_by_id(params[:supplier_id] || params[:id])
   end
 end
