@@ -1,6 +1,4 @@
 class SuppliersController < ApplicationController
-  before_filter :find_supplier, :only => [:show, :edit, :update, :orders_update]
-
   # def index
 
   def new

@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_filter :find_supplier
   before_filter :find_order, :only => [:edit, :update]
   helper_method :sort_column, :sort_direction
 
