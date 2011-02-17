@@ -161,35 +161,39 @@ div#business div.text {
  * DATA *
  ********/
 
-table#orders {
-  border-bottom: 1px solid #999;
+table.header, table#orders {
+  border: 1px solid #999;
   border-collapse: collapse;
   margin: 0;
   width: 100%;
 }
 
-table#orders th {
+table#orders {
+  border-width: 0 0 1px 0;
+}
+
+table.header th {
   background-color: #ccc;
 }
 
-table#orders th .asc:after {
+table.header th .asc:after {
   content: '\25b2';
 }
 
-table#orders th .desc:after {
+table.header th .desc:after {
   content: '\25bc';
+}
+
+table.header th, table#orders td {
+  border-left: 1px solid #999;
+  padding: 1px 8px 1px 4px;
 }
 
 table#orders tbody tr:nth-child(odd) {
   background-color: #eee;
 }
 
-table#orders th, table#orders td {
-  border-left: 1px solid #999;
-  padding: 1px 8px 1px 4px;
-}
-
-table#orders th:first-child, table#orders td:first-child {
+table.header th:first-child, table#orders td:first-child {
   border-left: 0;
   padding: 1px 1px 1px 0;
   width: 1px;
@@ -225,13 +229,25 @@ table#orders input:disabled {
   background-color: #ddd;
 }
 
-
 table#orders input[type=submit] {
   background-color: inherit;
   border-width: 0;
   padding: 1px;
   text-align: left;
   width: 100%;
+}
+
+table.header th:nth-child( 2), table#orders td:nth-child( 2) { width:  7em; }
+table.header th:nth-child( 3), table#orders td:nth-child( 3) { width:  2em; }
+table.header th:nth-child( 4), table#orders td:nth-child( 4) { width: 30em; }
+table.header th:nth-child( 5), table#orders td:nth-child( 5) { width:  3em; }
+table.header th:nth-child( 6), table#orders td:nth-child( 6) { width:  7.5em; }
+table.header th:nth-child( 7), table#orders td:nth-child( 7) { width:  2.5em; }
+table.header th:nth-child( 8), table#orders td:nth-child( 8) { width:  5em; }
+table.header th:nth-child( 9), table#orders td:nth-child( 9) { width:  4em; }
+table.header th:nth-child(10), table#orders td:nth-child(10) { width:  2em; }
+table.header {
+  border-width: 1px 0 0 0;
 }
 
 
@@ -333,6 +349,13 @@ form.member div.field_with_errors:last-child {
   border-top-width: 0;
   padding-top: 6px;
 }
+
+
+
+/*********
+ * TABLE *
+ *********/
+ 
 
 
 

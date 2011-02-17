@@ -34,6 +34,22 @@
           <strong>Bem&aelig;rkninger</strong>
           <%= @supplier.remarks %>
         </div>
+
+        <table class="header">
+          <tr>
+            <th><input type="checkbox" /></th>
+            <th><%= sortable 'created_at', 'Oprettet' %></th>
+            <th><%= sortable 'created_by', 'Ini.' %></th>
+            <th><%= sortable 'good', 'Dess.' %></th>
+            <th><%= sortable 'size', 'Str.' %></th>
+            <th><%= sortable 'color', 'Farve' %></th>
+            <th><%= sortable 'quantity', 'Stk.' %></th>
+            <th><%= sortable 'case_number', 'Sagsnr.' %></th>
+            <th><%= sortable 'ordered_at', 'Bestilt' %></th>
+            <th><%= sortable 'ordered_by', 'Ini.' %></th>
+            <th><%= sortable 'remarks', raw('Bem&aelig;rkninger') %></th>
+          </tr>
+        </table>
       </div>
     <% end %>
 
