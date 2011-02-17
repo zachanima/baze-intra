@@ -9,7 +9,12 @@ $(function() {
   });
 
   $('[data-prompt]').click(function() {
-    $(this).attr('value', prompt($(this).attr('data-prompt'), $(this).attr('data-default') || ''));
+    value = prompt($(this).attr('data-prompt'), $(this).attr('data-default') || '');
+    if (value) {
+      $(this).attr('value', value);
+    } else {
+      return false;
+    }
   });
 
   $('tbody :checkbox').change(function() {
