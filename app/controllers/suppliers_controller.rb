@@ -1,5 +1,6 @@
 class SuppliersController < ApplicationController
   before_filter :find_orders, :only => [:orders_update]
+
   # def index
 
   def new
@@ -26,14 +27,7 @@ class SuppliersController < ApplicationController
   end
 
   def orders_update
-    case params[:order_action]
-      when 'create': order_create
-      when 'remark': orders_remark
-      when 'order': orders_order
-      when 'cancel': orders_cancel
-      when 'copy': orders_copy
-      when 'delete': orders_destroy
-    end
+    send "orders_#{params[:order_action]}"
     redirect_to supplier_orders_path(@supplier)
   end
 
@@ -42,7 +36,7 @@ class SuppliersController < ApplicationController
     @orders = Order.find(params[:order_ids])
   end
 
-  def order_create
+  def orders_create
     @supplier.orders.build(params[:order]).save
   end
 
@@ -60,15 +54,15 @@ class SuppliersController < ApplicationController
 
   def orders_cancel
     @orders.each do |order|
-      order.cancel([params[:submit], order.remarks].compact.join(', '))
+      order.cancel(params[:submit])
     end
   end
 
   def orders_copy
-    @orders.collect(&:clone).each(&:copy)
+    @orders.each(&:copy)
   end
 
-  def orders_destroy
+  def orders_delete
     Order.destroy(params[:order_ids])
   end
 end

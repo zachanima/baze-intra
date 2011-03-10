@@ -14,8 +14,9 @@ class Order < ActiveRecord::Base
   end
 
   def copy
-    self.created_at = nil
-    self.save
+    clone = self.clone
+    clone.created_at = nil
+    clone.save
   end
 
   def remark(remarks)
