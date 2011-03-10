@@ -50,17 +50,13 @@ class SuppliersController < ApplicationController
 
   def orders_ordered_by
     Order.find(params[:order_ids]).each do |order|
-      order.ordered_at = Date.today
-      order.ordered_by = params[:ordered_by]
-      order.save
+      order.order(params[:ordered_by])
     end
   end
 
   def orders_cancel
     Order.find(params[:order_ids]).each do |order|
-      order.ordered_at = order.ordered_by = nil
-      order.remarks = [params[:cancel], (order.remarks.blank? ? nil : order.remarks)].compact.join(', ')
-      order.save
+      order.cancel([params[:cancel], order.remarks].compact.join(', '))
     end
   end
 

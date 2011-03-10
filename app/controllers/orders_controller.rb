@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     @order.update_attributes(params[:order])
     redirect_to supplier_orders_path(@supplier)
   end
-    
+
   private
   def find_order
     @order = Order.find(params[:id])
