@@ -1,5 +1,5 @@
 $(function() {
-  $('[name=remark]').click(function() {
+  $('[value=remark]').click(function() {
     $(':checkbox').attr('checked', false);
     $('#order_' + $(this).attr('data-order_id')).attr('checked', true);
   });
@@ -10,7 +10,7 @@ $(function() {
 
   $('[data-prompt]').click(function() {
     value = prompt($(this).attr('data-prompt'), $(this).attr('data-default') || '');
-    if (value) {
+    if (value != undefined) {
       $('[name=submit]').attr('value', value);
     } else {
       return false;

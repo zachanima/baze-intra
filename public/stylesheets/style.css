@@ -199,7 +199,7 @@ table.header th:first-child, table#orders td:first-child {
   width: 1px;
 }
 
-table#orders tbody th input[type=checkbox] {
+table#orders thead input[type=checkbox] {
   visibility: hidden;
 }
 
@@ -229,7 +229,7 @@ table#orders input:disabled {
   background-color: #ddd;
 }
 
-table#orders input[type=submit] {
+table#orders button {
   background-color: inherit;
   border-width: 0;
   padding: 1px;
@@ -238,14 +238,14 @@ table#orders input[type=submit] {
 }
 
 table.header th:nth-child( 2), table#orders td:nth-child( 2) { width:  7em; }
-table.header th:nth-child( 3), table#orders td:nth-child( 3) { width:  2em; }
+table.header th:nth-child( 3), table#orders td:nth-child( 3) { width:  2.5em; }
 table.header th:nth-child( 4), table#orders td:nth-child( 4) { width: 25em; }
 table.header th:nth-child( 5), table#orders td:nth-child( 5) { width:  5em; }
 table.header th:nth-child( 6), table#orders td:nth-child( 6) { width:  10em; }
-table.header th:nth-child( 7), table#orders td:nth-child( 7) { width:  2.5em; }
+table.header th:nth-child( 7), table#orders td:nth-child( 7) { width:  3em; }
 table.header th:nth-child( 8), table#orders td:nth-child( 8) { width:  5em; }
 table.header th:nth-child( 9), table#orders td:nth-child( 9) { width:  4em; }
-table.header th:nth-child(10), table#orders td:nth-child(10) { width:  2em; }
+table.header th:nth-child(10), table#orders td:nth-child(10) { width:  2.5em; }
 table.header {
   border-width: 1px 0 0 0;
 }

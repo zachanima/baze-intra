@@ -1,7 +1,7 @@
 <table id="orders" data-supplier_id="<%= @supplier.id %>">
   <thead>
     <tr>
-      <td></td>
+      <td><input type="checkbox" /></td>
       <td><%= 2.hour.from_now.to_s(:short) %></td>
       <td><%= text_field :order, :created_by %></td>
       <td><%= text_field :order, :good %></td>
@@ -11,7 +11,7 @@
       <td><%= text_field :order, :case_number %></td>
       <td><%= text_field :order, :ordered_at, :disabled => true %></td>
       <td><%= text_field :order, :ordered_by, :disabled => true %></td>
-      <td><%= text_field :order, :remarks %><input name="create" type="submit" style="display: none;"></td>
+      <td><%= text_field :order, :remarks %><button name="order_action" value="create" style="display: none;" /></td>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,22 @@
         <td><%= order.case_number %></td>
         <td><%= order.ordered_at.to_s(:short) if order.ordered_at %></td>
         <td><%= order.ordered_by %></td>
-        <td><input name="remark" type="submit" value="<%= order.remarks %>" data-default="<%= order.remarks %>" data-order_id="<%= order.id %>" data-prompt="Bem&aelig;rkninger?" /></td>
+        <td><button name="order_action" value="remark" data-default="<%= order.remarks %>" data-order_id="<%= order.id %>" data-prompt="Bem&aelig;rkninger?"><%= order.remarks %></button></td>
+      </tr>
+    <% end %>
+    <% if @orders.count == 0 %>
+      <tr>
+        <td><input type="checkbox" style="visibility: hidden;" /></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>

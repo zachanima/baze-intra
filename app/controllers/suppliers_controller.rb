@@ -25,17 +25,13 @@ class SuppliersController < ApplicationController
   end
 
   def orders_update
-    if params[:create]
-      order_create
-    elsif params[:remark]
-      orders_remark
-    else
-      case params[:order_action]
-        when 'order': orders_ordered_by
-        when 'cancel': orders_cancel
-        when 'copy': orders_copy
-        when 'delete': orders_destroy
-      end
+    case params[:order_action]
+      when 'create': order_create
+      when 'remark': orders_remark
+      when 'order': orders_ordered_by
+      when 'cancel': orders_cancel
+      when 'copy': orders_copy
+      when 'delete': orders_destroy
     end
     redirect_to supplier_orders_path(@supplier)
   end
@@ -70,7 +66,7 @@ class SuppliersController < ApplicationController
 
   def orders_remark
     Order.find(params[:order_ids]).each do |order|
-      order.remarks = params[:remark]
+      order.remarks = params[:submit]
       order.save
     end
   end
