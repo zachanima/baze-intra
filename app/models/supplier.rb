@@ -1,3 +1,4 @@
+# Classify supplier. Provides validation. Lacks mass assignment protection.
 class Supplier < ActiveRecord::Base
   has_many :orders, :dependent => :destroy
   validates_presence_of :name

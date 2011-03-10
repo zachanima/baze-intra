@@ -1,3 +1,4 @@
+# Control suppliers, and mass order updates.
 class SuppliersController < ApplicationController
   before_filter :find_orders, :only => [:orders_update]
   before_filter :find_supplier, :only => [:edit, :update, :orders_update]

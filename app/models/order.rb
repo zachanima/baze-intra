@@ -1,3 +1,4 @@
+# Classify order. Lacks mass assignment protection.
 class Order < ActiveRecord::Base
   belongs_to :supplier
 
