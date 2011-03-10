@@ -61,10 +61,11 @@
           <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
             <div id="actions">
               Med valgte:
-              <input name="ordered_by" disabled="disabled" type="submit" value="Bestilt af ..." data-prompt="Dine initialer?">
-              <input name="cancel" disabled="disabled" type="submit" value="Afbestil ..." data-prompt="Begrundelse for afbestilling?">
-              <input name="copy" disabled="disabled" type="submit" value="Kopi&eacute;r">
-              <input name="delete" disabled="disabled" type="submit" value="Slet" data-confirm="Slet valgte ordrer?">
+              <button name="order_action" disabled="disabled" value="order" data-prompt="Dine initialer?">Bestilt af ...</button>
+              <button name="order_action" disabled="disabled" value="cancel" data-prompt="Begrundelse for afbestilling?">Afbestil ...</button>
+              <button name="order_action" disabled="disabled" value="copy">Kopi&eacute;r</button>
+              <button name="order_action" disabled="disabled" value="delete" data-confirm="Slet valgte ordrer?">Slet</button>
+              <input name="submit" type="hidden" />
             </div>
 
             <ul class="nav">

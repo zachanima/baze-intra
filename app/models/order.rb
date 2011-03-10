@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   end
 
   def cancel(remarks)
-    self.ordered_at, order.ordered_by = nil
+    self.ordered_at = self.ordered_by = nil
     self.remarks = remarks
     self.save
   end

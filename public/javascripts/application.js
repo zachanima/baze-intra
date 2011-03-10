@@ -1,5 +1,5 @@
 $(function() {
-  $('thead :checkbox').change(function() {
+  $('th :checkbox').change(function() {
     $('tbody :checkbox').attr('checked', $(this).attr('checked'));
   });
 
@@ -8,16 +8,20 @@ $(function() {
     $('#order_' + $(this).attr('data-order_id')).attr('checked', true);
   });
 
+  $('[data-confirm]').click(function() {
+    return confirm($(this).attr('data-confirm'));
+  });
+
   $('[data-prompt]').click(function() {
     value = prompt($(this).attr('data-prompt'), $(this).attr('data-default') || '');
     if (value) {
-      $(this).attr('value', value);
+      $('[name=submit]').attr('value', value);
     } else {
       return false;
     }
   });
 
   $('tbody :checkbox').change(function() {
-    $('#actions input[value]').attr('disabled', $('tbody :checked').length == 0);
+    $('#actions button').attr('disabled', $('tbody :checked').length == 0);
   });
 });
