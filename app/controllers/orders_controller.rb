@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   def index
     @orders = @supplier.orders.order([sort_column, sort_direction] * ' ')
     @order = Order.new
-    render :layout => 'orders_index'
   end
 
   def edit

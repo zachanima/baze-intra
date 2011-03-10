@@ -13,18 +13,79 @@
           <%= render Supplier.business, :current_supplier => @supplier %>
           <li><%= link_to '+', "#{new_supplier_path}/business" %></li>
         </ul>
+
+        <% if params[:controller] == 'orders' and params[:action] == 'index' %>
+          <div>
+            <%= content_tag :div, @supplier.name, :id =>'supplier_name', :class => @supplier.kind %>
+            <div id="supplier_customer_id"><%= @supplier.customer_id %></div>
+          </div>
+
+          <div class="text">
+            <strong>Kontaktoplysninger</strong>
+            <%= @supplier.contact %>
+            <%= mail_to @supplier.email %>
+          </div>
+          <div class="text">
+            <strong>Returpolitik</strong>
+            <%= @supplier.return_policy %>
+          </div>
+          <div class="text">
+            <strong>Bem&aelig;rkninger</strong>
+            <%= @supplier.remarks %>
+          </div>
+          <table class="header">
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th><%= sortable 'created_at', 'Oprettet' %></th>
+              <th><%= sortable 'created_by', 'Ini.' %></th>
+              <th><%= sortable 'good', 'Dess.' %></th>
+              <th><%= sortable 'size', 'Str.' %></th>
+              <th><%= sortable 'color', 'Farve' %></th>
+              <th><%= sortable 'quantity', 'Stk.' %></th>
+              <th><%= sortable 'case_number', 'Sagsnr.' %></th>
+              <th><%= sortable 'ordered_at', 'Bestilt' %></th>
+              <th><%= sortable 'ordered_by', 'Ini.' %></th>
+              <th><%= sortable 'remarks', raw('Bem&aelig;rkninger') %></th>
+            </tr>
+          </table>
+        <% end %>
+
       </div>
     <% end %>
 
-    <%= yield %>
+    <% if params[:controller] == 'orders' and params[:action] == 'index' %>
+      <%= form_tag orders_update_supplier_path(@supplier) do %>
+        <%= yield %>
 
-    <% 2.times do %>
-      <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
-        <ul class="nav">
-          <%= render Supplier.shop, :current_supplier => @supplier %>
-          <li><%= link_to '+', "#{new_supplier_path}/shop" %></li>
-        </ul>
-      </div>
+        <% 2.times do %>
+          <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
+            <div id="actions">
+              Med valgte:
+              <input name="ordered_by" disabled="disabled" type="submit" value="Bestilt af ..." data-prompt="Dine initialer?">
+              <input name="cancel" disabled="disabled" type="submit" value="Afbestil ..." data-prompt="Begrundelse for afbestilling?">
+              <input name="copy" disabled="disabled" type="submit" value="Kopi&eacute;r">
+              <input name="delete" disabled="disabled" type="submit" value="Slet" data-confirm="Slet valgte ordrer?">
+            </div>
+
+            <ul class="nav">
+              <%= render Supplier.shop, :current_supplier => @supplier %>
+              <li><%= link_to '+', "#{new_supplier_path}/shop" %></li>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+
+    <% else %>
+      <%= yield %>
+
+      <% 2.times do %>
+        <div id="shop"<%= cycle '', raw(' class="hidden"') %>>
+          <ul class="nav">
+            <%= render Supplier.shop, :current_supplier => @supplier %>
+            <li><%= link_to '+', "#{new_supplier_path}/shop" %></li>
+          </ul>
+        </div>
+      <% end %>
     <% end %>
 
   </body>
