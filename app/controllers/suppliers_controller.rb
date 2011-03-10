@@ -1,4 +1,5 @@
 class SuppliersController < ApplicationController
+  before_filter :find_orders, :only => [:orders_update]
   # def index
 
   def new
@@ -28,7 +29,7 @@ class SuppliersController < ApplicationController
     case params[:order_action]
       when 'create': order_create
       when 'remark': orders_remark
-      when 'order': orders_ordered_by
+      when 'order': orders_order
       when 'cancel': orders_cancel
       when 'copy': orders_copy
       when 'delete': orders_destroy
@@ -37,37 +38,37 @@ class SuppliersController < ApplicationController
   end
 
   private
+  def find_orders
+    @orders = Order.find(params[:order_ids])
+  end
+
   def order_create
     @supplier.orders.build(params[:order]).save
   end
 
-  def orders_ordered_by
-    Order.find(params[:order_ids]).each do |order|
+  def orders_remark
+    @orders.each do |order|
+      order.remark(params[:submit])
+    end
+  end
+
+  def orders_order
+    @orders.each do |order|
       order.order(params[:submit])
     end
   end
 
   def orders_cancel
-    Order.find(params[:order_ids]).each do |order|
+    @orders.each do |order|
       order.cancel([params[:submit], order.remarks].compact.join(', '))
     end
   end
 
   def orders_copy
-    Order.find(params[:order_ids]).collect(&:clone).each do |clone|
-      clone.created_at = nil
-      clone.save
-    end
+    @orders.collect(&:clone).each(&:copy)
   end
 
   def orders_destroy
     Order.destroy(params[:order_ids])
-  end
-
-  def orders_remark
-    Order.find(params[:order_ids]).each do |order|
-      order.remarks = params[:submit]
-      order.save
-    end
   end
 end

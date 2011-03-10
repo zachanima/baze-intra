@@ -12,4 +12,14 @@ class Order < ActiveRecord::Base
     self.remarks = remarks
     self.save
   end
+
+  def copy
+    self.created_at = nil
+    self.save
+  end
+
+  def remark(remarks)
+    self.remarks = remarks
+    self.save
+  end
 end
