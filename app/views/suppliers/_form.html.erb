@@ -1,6 +1,6 @@
-<% form_for @supplier, :html => { :class => 'member' } do |f| %>
+<% form_for supplier, :html => { :class => 'member' } do |f| %>
   <fieldset>
-    <legend><%= raw(@supplier.new_record? ? 'Ny leverand&oslash;r' : "Redig&eacute;r leverand&oslash;r <span class=\"#{@supplier.kind}\">#{@supplier.name}</span>") %></legend>
+    <legend><%= raw(supplier.new_record? ? 'Ny leverand&oslash;r' : "Redig&eacute;r leverand&oslash;r <span class=\"#{supplier.kind}\">#{supplier.name}</span>") %></legend>
     <ol>
       <li>
         <%= f.label :name, 'Navn', :class => 'required' %>
@@ -34,6 +34,6 @@
         </fieldset>
       </li>
     </ol>
-    <%= f.submit raw(@supplier.new_record? ? 'Opret leverand&oslash;r' : 'Opdat&eacute;r leverand&oslash;r') %>
+    <%= f.submit raw(supplier.new_record? ? 'Opret leverand&oslash;r' : 'Opdat&eacute;r leverand&oslash;r') %>
   </fieldset>
 <% end %>

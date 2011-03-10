@@ -10,7 +10,7 @@
     <% 2.times do %>
       <div id="business"<%= cycle '', raw(' class="hidden"') %>>
         <ul class="nav">
-          <%= render Supplier.business %>
+          <%= render Supplier.business, :current_supplier => @supplier %>
           <li><%= link_to '+', "#{new_supplier_path}/business" %></li>
         </ul>
 
@@ -67,7 +67,7 @@
           </div>
 
           <ul class="nav">
-            <%= render Supplier.shop %>
+            <%= render Supplier.shop, :current_supplier => @supplier %>
             <li><%= link_to '+', "#{new_supplier_path}/shop" %></li>
           </ul>
         </div>

@@ -1,4 +1,4 @@
-<% if supplier === @supplier %>
+<% if supplier === current_supplier %>
   <li class="active">
     <% if params[:action] == 'index' %>
       <%= link_to supplier.name, edit_supplier_path(supplier) %>
