@@ -23,10 +23,12 @@ class OrdersController < ApplicationController
   end
 
   def sort_column
-    Order.column_names.include?(params[:sort]) ? params[:sort] : :created_at
+    sort = params[:sort]
+    Order.column_names.include?(sort) ? sort : :created_at
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : :desc
+    direction = params[:direction]
+    %w[asc desc].include?(direction) ? direction : :desc
   end
 end
