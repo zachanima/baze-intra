@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_filter :find_order, :only => [:edit, :update]
+  before_filter :find_supplier
   helper_method :sort_column, :sort_direction
 
   def index
@@ -16,7 +17,12 @@ class OrdersController < ApplicationController
     redirect_to supplier_orders_path(@supplier)
   end
 
+
   private
+  def find_supplier
+    @supplier = Supplier.find(params[:supplier_id])
+  end
+
   def find_order
     @order = Order.find(params[:id])
   end
