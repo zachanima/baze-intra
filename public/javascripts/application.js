@@ -1,8 +1,4 @@
 $(function() {
-  $('th :checkbox').change(function() {
-    $('tbody :checkbox').attr('checked', $(this).attr('checked'));
-  });
-
   $('[name=remark]').click(function() {
     $(':checkbox').attr('checked', false);
     $('#order_' + $(this).attr('data-order_id')).attr('checked', true);
