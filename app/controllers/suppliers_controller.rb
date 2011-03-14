@@ -41,7 +41,7 @@ class SuppliersController < ApplicationController
   end
 
   def find_orders
-    @orders = Order.find(params[:order_ids])
+    @orders = Order.find(params[:order_ids]) unless params[:order_action] == 'create'
   end
 
   def orders_create
